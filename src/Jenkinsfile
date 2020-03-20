@@ -1,0 +1,36 @@
+node {
+  try {
+    stage('Checkout') {
+      checkout scm
+      sh 'git --version'
+      echo "Branch: ${env.BRANCH_NAME}"
+      sh 'docker -v'
+      withCredentials([usernamePassword(credentialsId: 'docker-cred-tennisapp', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+        sh 'echo "${PASSWORD}" | docker login --username ${USERNAME} --password-stdin'
+      }
+    }
+    stage('Build'){
+      sh 'docker-compose build'
+    }
+    stage('QA'){
+      sh 'docker-compose -p laravel-autoemail-test down'
+      sh 'docker-compose -p laravel-autoemail-test up -d'
+    }
+  }
+  catch (err) {
+    throw err
+  }
+}
+timeout(time: 5, unit: "DAYS") {
+    input message: 'Is application ready for deployment?', ok: 'Yes'
+}
+node {
+  try {
+    stage('Deployment in Production'){
+      sh 'docker-compose -f docker-compose.prod.yml -p laravel-autoemail-prod up -d'
+    }
+  }
+  catch (err) {
+    throw err
+  }
+}

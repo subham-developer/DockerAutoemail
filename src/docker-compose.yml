@@ -1,0 +1,31 @@
+version: '2'
+services:
+  laravel:
+    build: .
+    image : laravel-autoemail-test
+    container_name : laravel-autoemail-test
+    ports:
+      - "5200:80"
+    depends_on:
+      - mysql
+    links:
+      - mysql:mysql
+    volumes: 
+      - auto-email-docs-test:/var/www/html/public/docs/
+
+  mysql:
+    image: mysql:5.6.36
+    volumes:
+       - db_data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=email
+      - MYSQL_PASSWORD=root
+      - MYSQL_USER=root
+    ports:
+      - "5222:3306"
+      
+volumes:
+    db_data:
+    auto-email-docs-test:
+

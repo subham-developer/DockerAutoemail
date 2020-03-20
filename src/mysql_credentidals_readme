@@ -1,0 +1,25 @@
+mysql user name  -root
+pwd  -root
+port -5111
+host http://5.189.128.116
+
+host - http://5.189.128.116:5000
+
+*********give permission to "public/docs" when buid a project throgh docker********
+
+Joining time need to be added
+
+
+
+keyur ---->
+{"group_id":"1","message":"h","message_type":"text","sender_id":"QWD5wPNBnwQqRwBmKmGle8QS1F83","receiver_id":"kyfEuI44W8gv8oOrpsfmBMqX6es1"}
+
+[{"key":"userId","value":"QWD5wPNBnwQqRwBmKmGle8QS1F83","description":""},{"key":"user-token","value":"4e778e6b9cd639a195ae8d07a38a6bf621033ef7a88bd817d8e85f7615a1","description":""},{"key":"Content-Type","value":"application/json","description":""}]
+
+kunal ---->
+{"group_id":"1","message":"h","message_type":"text","sender_id":"kyfEuI44W8gv8oOrpsfmBMqX6es1","receiver_id":"QWD5wPNBnwQqRwBmKmGle8QS1F83"}
+
+[{"key":"userId","value":"kyfEuI44W8gv8oOrpsfmBMqX6es1","description":""},{"key":"user-token","value":"f7TU9vxcVMc:APA91bHCtrRdBUO-IWzfEWw2wuFYdhR7Gp6lwE3fvM06qDReq5dO2IXY57FJeKEj85b1v1DwfJgjN44WmLQwkq0oPbX69xSxAhjEw_j_wW5UK-QWRf6nI9V9l_czl_WV8OagMC9hVMV3","description":""},{"key":"Content-Type","value":"application/json","description":""}]
+
+
+
